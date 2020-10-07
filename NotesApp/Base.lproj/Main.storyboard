@@ -26,6 +26,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="JFd-SO-ocr" kind="show" identifier="updateNoteSegue" id="pIf-b6-So3"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -57,7 +60,7 @@
         <!--Add Note-->
         <scene sceneID="lCH-We-9NJ">
             <objects>
-                <viewController id="JFd-SO-ocr" sceneMemberID="viewController">
+                <viewController id="JFd-SO-ocr" customClass="addNotesViewController" customModule="NotesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="enp-0j-fjv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,12 +93,20 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add Note" id="SPv-1B-gYH">
                         <rightBarButtonItems>
-                            <barButtonItem title="Save" id="yK8-AH-znw"/>
+                            <barButtonItem title="Save" id="yK8-AH-znw">
+                                <connections>
+                                    <action selector="saveClick:" destination="JFd-SO-ocr" id="AA1-Ie-Qgf"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="Delete" id="6ac-Ie-sOF">
                                 <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bodyTextView" destination="fgr-gW-Rka" id="7rb-Y3-Opc"/>
+                        <outlet property="titleTextField" destination="y4c-oH-nzc" id="9If-QI-9fJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bds-5g-vuQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -120,4 +131,7 @@
             <point key="canvasLocation" x="131.8840579710145" y="97.767857142857139"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="pIf-b6-So3"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -36,4 +36,17 @@ class APIFunctions{
             }
         }
     }
+    func addNote(date:String, title:String, note:String) {
+        AF.request("http://192.168.0.100:8081/create", method:.post, encoding: URLEncoding.httpBody, headers: ["title":title, "date":date, "note": note]).responseJSON { response in
+            
+            print(response)
+        }
+    }
+    func updateNote(date:String, title:String, note:String, id:String){
+        AF.request("http://192.168.0.100:8081/update", method:.post, encoding: URLEncoding.httpBody, headers: ["title":title, "date":date, "note": note, "id": id]).responseJSON { response in
+            
+            print(response)
+        }
+        
+    }
 }

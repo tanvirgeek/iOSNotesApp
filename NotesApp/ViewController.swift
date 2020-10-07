@@ -26,6 +26,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Do any additional setup after loading the view.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! addNotesViewController
+        if (segue.identifier == "updateNoteSegue"){
+            vc.note = noteArray[notesTableView.indexPathForSelectedRow!.row]
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return noteArray.count
     }
